@@ -1,0 +1,11 @@
+liblinear_logistic_classifier = liblinear_train(Y_shortened51_sw,X_combined_reduced5_shortened1_sw,'-c 0.25 -s 7 -e 1.0 ', 'row');
+
+%Testing
+[predicted_label, accuracy, Yhat] = liblinear_predict(ones(size(Xtest_combined_reduced5,1),1), Xtest_combined_reduced5, liblinear_logistic_classifier, '-b 0','row');
+
+Yhat = exp(Yhat);
+Yhat = bsxfun(@times, Yhat, 1./sum(Yhat,2));
+Yhat = sum(bsxfun(@times,Yhat,[1 2 4 5]),2);
+
+%Saving results
+save('-ascii', 'submit.txt', 'Yhat');

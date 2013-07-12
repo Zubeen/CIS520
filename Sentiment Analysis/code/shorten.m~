@@ -1,0 +1,26 @@
+lib_classifier7_reduced5_sw = liblinear_train(Y,X_combined_reduced5_sw,'-c 0.25 -s 7 -e 1.0', 'row')
+[label accuracy Yhat] = liblinear_predict(ones(size(X_combined_reduced5_sw,1),1), X_combined_reduced5_sw, lib_classifier7_reduced5_sw, '-b 0','row');
+
+Yhat = exp(Yhat);
+Yhat = bsxfun(@times, Yhat, 1./sum(Yhat,2));
+Yhat = sum(bsxfun(@times,Yhat,[1 2 4 5]),2);
+
+X_combined_reduced5_shortened0_sw= X_combined_reduced5_sw(find (abs(Yhat - Y) < 0.5 ),:);
+Y_shortened50_sw= Y(find (abs(Yhat - Y) < 0.5 ),:);
+X_combined_reduced5_shortened1_sw= X_combined_reduced5_sw(find (abs(Yhat - Y) < 1 ),:);
+Y_shortened51_sw= Y(find (abs(Yhat - Y) < 1 ),:);
+
+%%
+lib_classifier7_reduced6 = liblinear_train(Y,X_combined_reduced6,'-c 0.5 -s 7 -e 1.0', 'row');
+[label accuracy Yhat] = liblinear_predict(ones(size(X_combined_reduced6,1),1), X_combined_reduced6, lib_classifier7_reduced6, '-b 0','row');
+
+Yhat = exp(Yhat);
+Yhat = bsxfun(@times, Yhat, 1./sum(Yhat,2));
+Yhat = sum(bsxfun(@times,Yhat,[1 2 4 5]),2);
+
+
+X_combined_reduced6_shortened1= X_combined_reduced6(find (abs(Yhat - Y) < 1 ),:);
+Y_shortened61= Y(find (abs(Yhat - Y) < 1 ),:);
+X_combined_reduced6_shortened2= X_combined_reduced6(find (abs(Yhat - Y) < 2 ),:);
+Y_shortened62= Y(find (abs(Yhat - Y) < 2 ),:);
+

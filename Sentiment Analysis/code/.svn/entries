@@ -1,0 +1,70 @@
+10
+
+dir
+0
+svn+ssh://zubeen@eniac.seas.upenn.edu/home1/z/zubeen/Gondor/MLProject/code-latest
+svn+ssh://zubeen@eniac.seas.upenn.edu/home1/z/zubeen/Gondor/MLProject
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2feab80c-1254-11e1-89b7-89ee443cbb39
+
+MLNB_Basic_train.m
+file
+
+
+
+add
+
+clean_bigram_data.m
+file
+
+
+
+add
+
+liblinear_submission.m
+file
+
+
+
+add
+
+run_submission.m
+file
+
+
+
+add
+
+make_xval_partition.m
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
